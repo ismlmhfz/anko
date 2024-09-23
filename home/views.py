@@ -7,6 +7,8 @@ from django.core.mail import send_mail
 from django.db.models import Q
 import random
 import re
+from .models import Stat
+from .models import Achievements
 
 # Create your views here.
 def index (request):
@@ -54,8 +56,11 @@ def contact (request):
                 messages.error(request, 'Email or Phone is Invalid!')
     return render(request, 'contact.html', {})
 
-def projects (request):
-    return render(request, 'projects.html')
+def achievements(request):
+    stat = Stat.objects.first()
+    achievements = Achievements.objects.all()
+    return render(request, 'Achievements.html', {'stat': stat, 'achievements': achievements})
+
 
 def blog(request):
     blogs = Blog.objects.all().order_by('-time')

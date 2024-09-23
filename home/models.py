@@ -20,3 +20,20 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title
+
+
+
+class Stat(models.Model):
+    goals = models.CharField(max_length=200)
+    ratio = models.CharField(max_length=200)
+    assists = models.CharField(max_length=200)
+    matches = models.CharField(max_length=200)
+    titles = models.CharField(max_length=200)
+    awards = models.CharField(max_length=200)
+
+class Achievements(models.Model):
+    championship = models.CharField(max_length=200)
+    country = models.CharField(max_length=200)
+    year = models.CharField(max_length=200)
+    teams = models.CharField(max_length=200)
+    achievement = models.CharField(max_length=200)
